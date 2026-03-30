@@ -1,5 +1,6 @@
 -- CTE (Customer Revenue)
 
+
 WITH CustomerRevenue AS
 (
     SELECT
