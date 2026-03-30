@@ -1,4 +1,4 @@
-# CTE (Customer Revenue)
+-- CTE (Customer Revenue)
 
 WITH CustomerRevenue AS
 (
@@ -16,7 +16,7 @@ FROM CustomerRevenue
 ORDER BY TotalRevenue DESC;
 
 
-# Window Function (Running Total of Sales)
+-- Window Function (Running Total of Sales)
 
 SELECT
     t.InvoiceDate,
@@ -32,7 +32,7 @@ JOIN Dim_Time t
 GROUP BY t.InvoiceDate
 ORDER BY t.InvoiceDate;
 
-# Rank and Over (Top Customers)
+-- Rank and Over (Top Customers)
 
 SELECT
     c.Customer_ID,
@@ -49,7 +49,7 @@ JOIN Dim_Customers c
 GROUP BY c.Customer_ID
 ORDER BY CustomerRank;
 
-# LAG (Compare Sales With Previous Day)
+-- LAG (Compare Sales With Previous Day)
 
 SELECT
     t.InvoiceDate,
@@ -65,7 +65,7 @@ JOIN Dim_Time t
 GROUP BY t.InvoiceDate
 ORDER BY t.InvoiceDate;
 
-# Rolling Average (7-Day Sales Trend)
+-- Rolling Average (7-Day Sales Trend)
 
 SELECT
     t.InvoiceDate,
@@ -85,9 +85,9 @@ GROUP BY t.InvoiceDate
 ORDER BY t.InvoiceDate;
 
 
-# Cohort Analysis (Customer First Purchase Month)
+-- Cohort Analysis (Customer First Purchase Month)
 
-## Calculate RFM values
+-- Calculate RFM values
 
 WITH CustomerFirstPurchase AS
 (
@@ -111,7 +111,7 @@ GROUP BY
 ORDER BY CohortYear, CohortMonth;
 
 
-# RFM Scoring (Recency, Frequency, Monetary)
+-- RFM Scoring (Recency, Frequency, Monetary)
 
 WITH RFM_Base AS
 (
@@ -164,7 +164,7 @@ SELECT
 FROM RFM_Base;
 
 
-# Customer Segmentation Logic
+-- Customer Segmentation Logic
 
 WITH RFM AS
 (
@@ -195,7 +195,7 @@ ORDER BY Monetary DESC;
 
 
 
-# Pareto Analysis — Top Products Driving 80% of Revenue
+-- Pareto Analysis â€” Top Products Driving 80% of Revenue
 
 WITH ProductRevenue AS
 (
@@ -229,7 +229,7 @@ FROM RevenueRank
 ORDER BY Revenue DESC;
 
 
-# Customer Lifetime Value (CLV) Ranking
+-- Customer Lifetime Value (CLV) Ranking
 
 SELECT
     c.Customer_ID,
@@ -257,7 +257,7 @@ GROUP BY
 ORDER BY LifetimeValue DESC;
 
 
-# Month-to-Month Growth (Revenue Trend)
+-- Month-to-Month Growth (Revenue Trend)
 
 WITH MonthlyRevenue AS
 (
@@ -290,7 +290,7 @@ ORDER BY Year, Month;
 
 
 
-# Top Country Markets
+-- Top Country Markets
 
 SELECT
     co.Country,
