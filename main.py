@@ -10,7 +10,7 @@ import seaborn as sns
 
 # 1 CONNECT TO SQL SERVER
 
-server = "ANA"
+server = "YOUR_SERVER_NAME"
 database = "Ecommerce_Intelligence_DB"
 
 connection_string = (
